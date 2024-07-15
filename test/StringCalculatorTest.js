@@ -21,5 +21,9 @@ describe("StringCalculator", () => {
         it("should add numbers separated by both comma and new line", () => {
             assert.equal(addString("4,7\n3"), 14)
         })
+
+        it("should process the string with custom set of delimiters", () => {
+            assert.equal(addString("//;\n4;7;3;5"), 19)
+        })
     })
 })
