@@ -17,5 +17,9 @@ describe("StringCalculator", () => {
             assert.equal(addString("5,8"), 13);
             assert.equal(addString("34,52,87,95,62,87"), 417);
         })
+
+        it("should add numbers separated by both comma and new line", () => {
+            assert.equal(addString("4,7\n3"), 14)
+        })
     })
 })
