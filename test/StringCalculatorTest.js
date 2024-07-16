@@ -23,7 +23,7 @@ describe("StringCalculator", () => {
         })
 
         it("should process the string with custom set of delimiters", () => {
-            assert.equal(addString("//;\n4;7;3;5"), 19)
+            assert.equal(addString("//[;]\n4;7;3;5"), 19)
         })
 
         it("should throw error if there are negative numbers in the string", () => {
@@ -34,6 +34,18 @@ describe("StringCalculator", () => {
             } catch(e) {
                 assert.equal(e.message, 'negative numbers not allowed -2,-8')
             }
+        })
+
+        it("should Ignore numbers greater than 1000", () => {
+            assert.equal(addString("2,3,1003"), 5);
+        })
+
+        it("should handle multiple delimiters", () => {
+            assert.equal(addString("//[;][/][}]\n4;7}3/5"), 19);
+        })
+
+        it("should handle delimiters of different lengths", () => {
+            assert.equal(addString("//[abc][,./]\n5abc2,./9"), 16);
         })
     })
 })

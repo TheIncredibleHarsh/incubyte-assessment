@@ -1,3 +1,3 @@
 import { addString } from "./StringCalculator.js";
 
-console.log(addString("//;['/\n4;7;3;5"))
+console.log(addString("//[abc][,./]\n5abc2,./9"))
