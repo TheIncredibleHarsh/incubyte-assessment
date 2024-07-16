@@ -25,5 +25,15 @@ describe("StringCalculator", () => {
         it("should process the string with custom set of delimiters", () => {
             assert.equal(addString("//;\n4;7;3;5"), 19)
         })
+
+        it("should throw error if there are negative numbers in the string", () => {
+            // assert.throws(addString("-2,4,7,8"), Error, /negative numbers not allowed*/)
+            
+            try {
+                assert.ok(addString("-2,-8,4,7,8"))
+            } catch(e) {
+                assert.equal(e.message, 'negative numbers not allowed -2,-8')
+            }
+        })
     })
 })
